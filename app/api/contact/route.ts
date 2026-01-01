@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     const data = await resend.emails.send({
-      from: 'Codevo Studio <noreply@codevostudio.com>', // Update with your verified domain
+      from: 'Codevo Studio <info@codevostudio.com>', // Update with your verified domain
       to: ['mc1986.99@gmail.com'], // Update with your email
       subject: `New Contact Form - ${name}`,
       html: `
