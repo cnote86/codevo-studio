@@ -1,103 +1,307 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import ApproachCard from "@/components/ui/ApproachCard";
+
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 font-sans">
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        {/* Header */}
+        <header className="mb-16 text-center">
+  <motion.div
+    initial={{ opacity: 0, y: 12 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
+    className="inline-block p-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mb-6"
+  >
+    <div className="bg-white rounded-full px-6 py-2">
+      <span className="text-sm font-semibold text-gray-700">
+        Front-End Developer
+      </span>
+    </div>
+  </motion.div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  <motion.h1
+    initial={{ opacity: 0, y: 16 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.45, ease: "easeOut", delay: 0.05 }}
+    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
+  >
+    Mario Campos | CodevoStudio
+  </motion.h1>
+
+  <motion.p
+    initial={{ opacity: 0, y: 16 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+    className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
+  >
+    Building responsive, production-ready websites with clarity and reliability
+  </motion.p>
+
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.4, delay: 0.15 }}
+    className="flex flex-wrap justify-center gap-4 mb-12"
+  >
+    <Link
+      href="/portfolio"
+      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl"
+    >
+      View Portfolio
+    </Link>
+
+    <Link
+      href="/contact"
+      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all"
+    >
+      Contact Me
+    </Link>
+
+    <a
+      href="https://github.com/cnote86"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all"
+    >
+      GitHub
+    </a>
+  </motion.div>
+</header>
+
+
+        {/* About */}
+       <motion.section
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-80px" }}
+  transition={{ duration: 0.45, ease: "easeOut" }}
+  className="mb-16 bg-white rounded-2xl shadow-lg p-8"
+>
+  <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+    About Me
+  </h2>
+  <p className="text-gray-700 leading-relaxed text-lg text-center max-w-3xl mx-auto">
+    I build and maintain responsive, production-ready websites with a focus on
+    clarity, reliability, and real-world deployment. My work includes live
+    service websites, in-progress applications, and structured projects
+    completed through formal training.
+  </p>
+</motion.section>
+
+        {/* Skills */}
+        {/* Skills */}
+<motion.section
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-80px" }}
+  transition={{ duration: 0.45, ease: "easeOut" }}
+  className="mb-16 bg-white rounded-2xl shadow-lg p-8"
+>
+  <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">
+    Technical Skills
+  </h2>
+
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.06,
+        },
+      },
+    }}
+    className="flex flex-wrap justify-center gap-4"
+  >
+    <motion.span
+      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full font-medium shadow-sm"
+    >
+      HTML/CSS
+    </motion.span>
+
+    <motion.span
+      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="px-4 py-2 bg-gradient-to-r from-teal-100 to-teal-200 text-teal-800 rounded-full font-medium shadow-sm"
+    >
+      JavaScript
+    </motion.span>
+
+    <motion.span
+      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 rounded-full font-medium shadow-sm"
+    >
+      React
+    </motion.span>
+
+    <motion.span
+      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="px-4 py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full font-medium shadow-sm"
+    >
+      Responsive Design
+    </motion.span>
+
+    <motion.span
+      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="px-4 py-2 bg-gradient-to-r from-indigo-100 to-indigo-200 text-indigo-800 rounded-full font-medium shadow-sm"
+    >
+      Cloud Deployment
+    </motion.span>
+  </motion.div>
+</motion.section>
+
+        {/* Featured Projects */}
+<motion.section
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-80px" }}
+  transition={{ duration: 0.45, ease: "easeOut" }}
+  className="mb-16"
+>
+  <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
+    Featured Projects
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-8">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    >
+      <h3 className="font-bold text-lg mb-3 text-gray-800">
+        <a
+          href="https://rosiesjanitorialoc.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          Rosie's Janitorial
+        </a>
+      </h3>
+      <p className="text-sm text-gray-600 mb-3">Live production website</p>
+      <p className="text-gray-700 text-sm">
+        Responsive, content-driven site focused on service clarity and trust.
+      </p>
+    </motion.div>
+
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    >
+      <h3 className="font-bold text-lg mb-3 text-gray-800">
+        <a
+          href="https://asmeconsulttoria.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          ASME Consultoría
+        </a>
+      </h3>
+      <p className="text-sm text-gray-600 mb-3">
+        Professional services platform
+      </p>
+      <p className="text-gray-700 text-sm">
+        Clean layouts with accessibility focus and responsive behavior.
+      </p>
+    </motion.div>
+
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    >
+      <h3 className="font-bold text-lg mb-3 text-gray-800">
+        <a
+          href="https://camamezcuas.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          CAM Amezcuas
+        </a>
+      </h3>
+      <p className="text-sm text-gray-600 mb-3">Brand-focused website</p>
+      <p className="text-gray-700 text-sm">
+        Balanced aesthetics with usability and performance.
+      </p>
+    </motion.div>
+  </div>
+
+  <div className="text-center mt-8">
+    <Link
+      href="/portfolio"
+      className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg"
+    >
+      View Full Portfolio
+    </Link>
+  </div>
+</motion.section>
+
+
+        {/* Approach */}
+        <section className="mb-16 bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">My Approach</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <ApproachCard
+              title="Mobile-First Focus"
+              description="Responsive design as a requirement, not an afterthought."
+              color="blue"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <ApproachCard
+              title="Content Clarity"
+              description="Prioritize trust and information hierarchy for content-heavy pages."
+              color="teal"
+            />
+            <ApproachCard
+              title="Production Ready"
+              description="Comfortable with live cloud-hosted environments and real deployments."
+              color="purple"
+            />
+            <ApproachCard
+              title="Maintainability"
+              description="Optimize for long-term maintainability, not just visuals."
+              color="green"
+            />
+          </div>
+        </section>
+        
+        {/* Contact */}
+        <section className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Get In Touch</h2>
+          <div className="text-center">
+            <p className="text-gray-700 mb-4 text-lg">Interested in working together?</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a 
+                href="mailto:info@codevostudio.com" 
+                className="text-blue-600 hover:underline font-medium"
+              >
+                info@codevostudio.com
+              </a>
+              <span className="text-gray-400">|</span>
+              <a 
+                href="mailto:mc1986.99@gmail.com" 
+                className="text-blue-600 hover:underline font-medium"
+              >
+                mc1986.99@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
