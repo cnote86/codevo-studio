@@ -28,7 +28,7 @@ export default function Home() {
     initial={{ opacity: 0, y: 16 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.45, ease: "easeOut", delay: 0.05 }}
-    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
+    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent text-center"
   >
     Mario Campos | CodevoStudio
   </motion.h1>
@@ -50,14 +50,14 @@ export default function Home() {
   >
     <Link
       href="/portfolio"
-      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl"
+      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/30"
     >
       View Portfolio
     </Link>
 
     <Link
       href="/contact"
-      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all"
+      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all hover:shadow-lg hover:shadow-teal-300/30"
     >
       Contact Me
     </Link>
@@ -66,8 +66,11 @@ export default function Home() {
       href="https://github.com/cnote86"
       target="_blank"
       rel="noopener noreferrer"
-      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all"
+      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-all hover:shadow-lg hover:shadow-purple-300/30 flex items-center gap-2"
     >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+      </svg>
       GitHub
     </a>
   </motion.div>
@@ -106,60 +109,27 @@ export default function Home() {
     Technical Skills
   </h2>
 
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={{
-      hidden: {},
-      visible: {
-        transition: {
-          staggerChildren: 0.06,
-        },
-      },
-    }}
-    className="flex flex-wrap justify-center gap-4"
-  >
-    <motion.span
-      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full font-medium shadow-sm"
-    >
+  <div className="flex flex-wrap justify-center gap-4">
+    <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full font-medium">
       HTML/CSS
-    </motion.span>
+    </span>
 
-    <motion.span
-      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="px-4 py-2 bg-gradient-to-r from-teal-100 to-teal-200 text-teal-800 rounded-full font-medium shadow-sm"
-    >
+    <span className="px-4 py-2 bg-gradient-to-r from-teal-100 to-teal-200 text-teal-800 rounded-full font-medium">
       JavaScript
-    </motion.span>
+    </span>
 
-    <motion.span
-      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 rounded-full font-medium shadow-sm"
-    >
+    <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 rounded-full font-medium">
       React
-    </motion.span>
+    </span>
 
-    <motion.span
-      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="px-4 py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full font-medium shadow-sm"
-    >
+    <span className="px-4 py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full font-medium">
       Responsive Design
-    </motion.span>
+    </span>
 
-    <motion.span
-      variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="px-4 py-2 bg-gradient-to-r from-indigo-100 to-indigo-200 text-indigo-800 rounded-full font-medium shadow-sm"
-    >
+    <span className="px-4 py-2 bg-gradient-to-r from-indigo-100 to-indigo-200 text-indigo-800 rounded-full font-medium">
       Cloud Deployment
-    </motion.span>
-  </motion.div>
+    </span>
+  </div>
 </motion.section>
 
         {/* Featured Projects */}
@@ -175,10 +145,8 @@ export default function Home() {
   </h2>
 
   <div className="grid md:grid-cols-3 gap-8">
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    <div
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 text-center"
     >
       <h3 className="font-bold text-lg mb-3 text-gray-800">
         <a
@@ -194,12 +162,10 @@ export default function Home() {
       <p className="text-gray-700 text-sm">
         Responsive, content-driven site focused on service clarity and trust.
       </p>
-    </motion.div>
+    </div>
 
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    <div
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 text-center"
     >
       <h3 className="font-bold text-lg mb-3 text-gray-800">
         <a
@@ -217,12 +183,10 @@ export default function Home() {
       <p className="text-gray-700 text-sm">
         Clean layouts with accessibility focus and responsive behavior.
       </p>
-    </motion.div>
+    </div>
 
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg text-center"
+    <div
+      className="bg-white rounded-xl shadow-md p-6 border border-gray-100 text-center"
     >
       <h3 className="font-bold text-lg mb-3 text-gray-800">
         <a
@@ -238,13 +202,13 @@ export default function Home() {
       <p className="text-gray-700 text-sm">
         Balanced aesthetics with usability and performance.
       </p>
-    </motion.div>
+    </div>
   </div>
 
   <div className="text-center mt-8">
     <Link
       href="/portfolio"
-      className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg"
+      className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/40"
     >
       View Full Portfolio
     </Link>
@@ -287,15 +251,23 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <a 
                 href="mailto:info@codevostudio.com" 
-                className="text-blue-600 hover:underline font-medium"
+                className="text-blue-600 hover:underline font-medium flex items-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-mail">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
                 info@codevostudio.com
               </a>
               <span className="text-gray-400">|</span>
               <a 
                 href="mailto:mc1986.99@gmail.com" 
-                className="text-blue-600 hover:underline font-medium"
+                className="text-blue-600 hover:underline font-medium flex items-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-mail">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
                 mc1986.99@gmail.com
               </a>
             </div>
