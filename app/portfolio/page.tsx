@@ -97,10 +97,10 @@ export default function PortfolioPage() {
             <ProjectCard
               title="Mi Tandita"
               url="https://www.mi-tandita.com/"
-              badge="Live Production"
-              badgeColor="from-green-500 to-emerald-500"
+              badge="Landing Page Live"
+              badgeColor="from-yellow-500 to-amber-500"
               role="Front-end & product development"
-              description="A mobile app for organizing collective savings groups (tandas). Platform for coordination, calendars, payment tracking, and notifications. Currently in development with only the landing website deployed and live in production."
+              description="A mobile app for organizing collective savings groups (tandas). Platform for coordination, calendars, payment tracking, and notifications. Currently in development with the landing page deployed and live."
             />
           </div>
         </section>
