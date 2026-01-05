@@ -70,7 +70,7 @@ export default function PortfolioPage() {
               badge="Live Production"
               badgeColor="from-green-500 to-emerald-500"
               role="Front-end development"
-              description="Content-heavy financial services site for Americans living in Mexico. Features include tax consulting, compliance guidance, and specialized advisory services for cross-border residents."
+              description="Professional tax and financial consulting website for Americans living in Mexico. Features include tax consulting, compliance guidance, and specialized advisory services for cross-border residents."
             />
           </div>
         </section>

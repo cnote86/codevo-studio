@@ -142,7 +142,7 @@ export default function AboutPage() {
                   <BulletListItem color="blue">Rosie's Janitorial Services - Service business website</BulletListItem>
                   <BulletListItem color="blue">ASME Consultoría - Professional services platform</BulletListItem>
                   <BulletListItem color="blue">CAM Amezcuas - Brand-focused marketing site</BulletListItem>
-                  <BulletListItem color="blue">Servicios Financieros - Content-heavy financial services site</BulletListItem>
+                  <BulletListItem color="blue">Servicios Fiscales - Tax and financial consulting for Americans in Mexico</BulletListItem>
                 </ul>
               </ContentBox>
               
