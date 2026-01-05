@@ -100,7 +100,7 @@ export default function PortfolioPage() {
               badge="Live Production"
               badgeColor="from-green-500 to-emerald-500"
               role="Front-end & product development"
-              description="A mobile-first website for organizing collective savings groups (tandas). Platform for coordination, calendars, payment tracking, and notifications. Built with user-friendly interfaces for non-technical users. Deployed and live in production."
+              description="A mobile app for organizing collective savings groups (tandas). Platform for coordination, calendars, payment tracking, and notifications. Currently in development with only the landing website deployed and live in production."
             />
           </div>
         </section>
