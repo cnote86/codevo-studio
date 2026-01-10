@@ -105,12 +105,14 @@ export default function RelicScene({
 
   useEffect(() => {
     setMounted(true);
+    // Initialize with small progress so model is visible immediately
+    setScrollProgress(0.01);
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
       const progress = Math.min(scrollTop / windowHeight, 1);
-      setScrollProgress(progress);
+      setScrollProgress(Math.max(progress, 0.01));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
