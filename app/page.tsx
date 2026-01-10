@@ -28,7 +28,7 @@ export default function Home() {
         <header className="mb-32 text-center">
   <motion.h1
     style={{ y: heroY, opacity: heroOpacity }}
-    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 text-neutral-900 text-center tracking-tighter leading-none"
+    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 text-gray-900 text-center tracking-tighter leading-none"
   >
     Mario Campos
   </motion.h1>
@@ -37,7 +37,7 @@ export default function Home() {
     initial={{ opacity: 0, y: 16 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-    className="text-lg text-neutral-500 mb-16 max-w-xl mx-auto leading-relaxed font-light"
+    className="text-lg text-neutral-700 mb-16 max-w-xl mx-auto leading-relaxed font-light"
   >
     Front-end developer building responsive, production-ready websites
   </motion.p>
@@ -88,7 +88,7 @@ export default function Home() {
   <h2 className="text-3xl font-light mb-12 text-center text-neutral-900 tracking-tight">
     About
   </h2>
-  <p className="text-neutral-600 leading-loose text-base text-center max-w-2xl mx-auto font-light">
+  <p className="text-neutral-700 leading-loose text-base text-center max-w-2xl mx-auto font-light">
     I build and maintain responsive, production-ready websites with a focus on clarity, reliability, and real-world deployment. My work includes live service websites, in-progress applications, and structured projects completed through formal training.
   </p>
 </motion.section>
@@ -106,23 +106,23 @@ export default function Home() {
   </h2>
 
   <div className="flex flex-wrap justify-center gap-4">
-    <span className="px-6 py-2 text-neutral-500 text-sm font-light tracking-wide">
+    <span className="px-6 py-2 text-neutral-700 text-sm font-light tracking-wide">
       HTML/CSS
     </span>
 
-    <span className="px-6 py-2 text-neutral-500 text-sm font-light tracking-wide">
+    <span className="px-6 py-2 text-neutral-700 text-sm font-light tracking-wide">
       JavaScript
     </span>
 
-    <span className="px-6 py-2 text-neutral-500 text-sm font-light tracking-wide">
+    <span className="px-6 py-2 text-neutral-700 text-sm font-light tracking-wide">
       React
     </span>
 
-    <span className="px-6 py-2 text-neutral-500 text-sm font-light tracking-wide">
+    <span className="px-6 py-2 text-neutral-700 text-sm font-light tracking-wide">
       Responsive Design
     </span>
 
-    <span className="px-6 py-2 text-neutral-500 text-sm font-light tracking-wide">
+    <span className="px-6 py-2 text-neutral-700 text-sm font-light tracking-wide">
       Cloud Deployment
     </span>
   </div>
@@ -147,12 +147,12 @@ export default function Home() {
           href="https://rosiesjanitorialoc.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-neutral-500 transition-colors"
+          className="hover:text-neutral-800 transition-colors"
         >
           Rosie's Janitorial
         </a>
       </h3>
-      <p className="text-xs text-neutral-400 mb-3 tracking-wide">Live Production</p>
+      <p className="text-xs text-neutral-700 mb-3 tracking-wide">Live Production</p>
       <p className="text-neutral-600 text-sm font-light leading-relaxed">
         Responsive, content-driven site focused on service clarity and trust.
       </p>
@@ -164,12 +164,12 @@ export default function Home() {
           href="https://asmeconsulttoria.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-neutral-500 transition-colors"
+          className="hover:text-neutral-800 transition-colors"
         >
           ASME Consultoría
         </a>
       </h3>
-      <p className="text-xs text-neutral-500 mb-3 tracking-wide">
+      <p className="text-xs text-neutral-700 mb-3 tracking-wide">
         Professional Services
       </p>
       <p className="text-neutral-600 text-sm font-light leading-relaxed">
@@ -183,12 +183,12 @@ export default function Home() {
           href="https://camamezcuas.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-neutral-500 transition-colors"
+          className="hover:text-neutral-800 transition-colors"
         >
           CAM Amezcuas
         </a>
       </h3>
-      <p className="text-xs text-neutral-400 mb-3 tracking-wide">Brand Website</p>
+      <p className="text-xs text-neutral-700 mb-3 tracking-wide">Brand Website</p>
       <p className="text-neutral-600 text-sm font-light leading-relaxed">
         Balanced aesthetics with usability and performance.
       </p>
@@ -237,7 +237,7 @@ export default function Home() {
         
         {/* Contact */}
         <section className="text-center">
-          <h2 className="text-3xl font-light mb-12 text-neutral-900 tracking-tight">Get In Touch</h2>
+          <h2 className="text-3xl font-light mb-12 text-stone-900 tracking-tight">Get In Touch</h2>
           <div className="flex flex-wrap justify-center gap-8">
             <a 
               href="mailto:info@codevostudio.com" 

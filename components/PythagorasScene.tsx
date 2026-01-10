@@ -88,17 +88,10 @@ function Scene({ scrollProgress }: { scrollProgress: number }) {
 
 export default function PythagorasScene() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -110,12 +103,11 @@ export default function PythagorasScene() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  if (!mounted || isMobile) return null;
+  if (!mounted) return null;
 
   return (
     <div

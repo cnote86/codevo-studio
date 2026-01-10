@@ -93,17 +93,10 @@ export default function BuddhaScene({
   scale = 8.8 
 }: BuddhaSceneProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -115,12 +108,11 @@ export default function BuddhaScene({
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  if (!mounted || isMobile) return null;
+  if (!mounted) return null;
 
   return (
     <div
