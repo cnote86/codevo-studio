@@ -127,15 +127,10 @@ export default function Scene3D({
   initialRotation = -0.25 
 }: Scene3DProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
 
     const handleScroll = () => {
       const progress = Math.min(window.scrollY / window.innerHeight, 1);
@@ -144,12 +139,11 @@ export default function Scene3D({
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  if (!mounted || isMobile) return null;
+  if (!mounted) return null;
 
   return (
     <div
