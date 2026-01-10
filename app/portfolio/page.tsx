@@ -1,235 +1,238 @@
+"use client";
+
 import Link from "next/link";
-import Card from "@/components/ui/Card";
-import PageHeader from "@/components/ui/PageHeader";
-import SectionHeader from "@/components/ui/SectionHeader";
-import ProjectCard from "@/components/ui/ProjectCard";
-import TrainingProjectCard from "@/components/ui/TrainingProjectCard";
-import ContentBox from "@/components/ui/ContentBox";
-import BulletListItem from "@/components/ui/BulletListItem";
+import dynamic from "next/dynamic";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const BuddhaScene = dynamic(() => import("@/components/BuddhaScene"), { ssr: false });
 
 export default function PortfolioPage() {
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, 150]);
+  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  
   return (
-    <div className="min-h-screen text-gray-900 font-sans relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-teal-50 to-indigo-50 z-0"></div>
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-      </div>
-      <div className="max-w-6xl mx-auto px-6 py-16 relative z-10">
-        {/* Header */}
-        <PageHeader
-  backHref="/"
-  pill="Front-End Portfolio"
-  title="Front-End Portfolio"
-  subtitle="Patient-Facing & Content-Driven Web Platforms"
-/>
+    <div className="min-h-screen text-gray-900 font-sans relative">
+      <div className="fixed inset-0 bg-neutral-100" style={{ zIndex: -1 }} />
+      
+      <BuddhaScene 
+        position={[0, -1.5, -0.8]} 
+        scale={1.8} 
+      />
 
+      <div className="max-w-5xl mx-auto px-6 py-32 relative z-10">
+        {/* Header */}
+        <header className="mb-32 text-center">
+          <Link href="/" className="text-neutral-500 hover:text-neutral-900 text-sm mb-12 inline-block transition-colors">
+            ← Back
+          </Link>
+          <motion.h1
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="text-5xl sm:text-6xl md:text-7xl font-light mb-8 text-neutral-900 text-center tracking-tighter leading-none"
+          >
+            Portfolio
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+            className="text-lg text-neutral-500 max-w-xl mx-auto font-light"
+          >
+            Production websites and development work
+          </motion.p>
+        </header>
 
         {/* Live Production Websites */}
-        <section className="mb-20">
-          <SectionHeader
-  title="Live Production Websites"
-  gradient="from-green-500 to-emerald-500"
-/>
-          <p className="text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            These are real, publicly accessible sites built for real users.
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="mb-32"
+        >
+          <h2 className="text-3xl font-light text-neutral-900 mb-4 text-center tracking-tight">Live Production</h2>
+          <p className="text-neutral-600 mb-16 text-center max-w-2xl mx-auto font-light">
+            Real, publicly accessible sites built for real users
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <ProjectCard
-              title="Rosie's Janitorial Services"
-              url="https://rosiesjanitorialoc.com"
-              badge="Live Production"
-              badgeColor="from-green-500 to-emerald-500"
-              role="Front-end development, layout, responsiveness, deployment support"
-              description="Built a responsive, content-driven website focused on service clarity and trust. Structured layouts for scalability and ongoing content updates. Implemented SEO fundamentals and performance optimizations. Supported deployment and post-launch fixes in a live environment."
-            />
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">Live</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://rosiesjanitorialoc.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Rosie's Janitorial Services
+                </a>
+              </h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Front-end, layout, deployment</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Responsive, content-driven website focused on service clarity and trust. Structured for scalability and ongoing updates.
+              </p>
+            </article>
 
-            <ProjectCard
-              title="ASME Consultoría"
-              url="https://asmeconsulttoria.com"
-              badge="Live Production"
-              badgeColor="from-green-500 to-emerald-500"
-              role="Full-stack development & SEO"
-              description="Developed a professional services website emphasizing clarity and credibility. Implemented full-stack functionality and SEO optimization. Translated business requirements into clean, accessible layouts with responsive behavior across devices."
-            />
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">Live</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://asmeconsulttoria.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  ASME Consultoría
+                </a>
+              </h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Full-stack & SEO</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Professional services platform emphasizing clarity and credibility. Clean, accessible layouts with responsive behavior.
+              </p>
+            </article>
 
-            <ProjectCard
-              title="CAM Amezcuas"
-              url="https://camamezcuas.com"
-              badge="Live Production"
-              badgeColor="from-green-500 to-emerald-500"
-              role="Full-stack development & SEO"
-              description="Built a brand-focused website combining marketing visuals with structured content. Implemented full-stack functionality and SEO optimization. Balanced aesthetics with usability and performance for optimal user experience."
-            />
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">Live</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://camamezcuas.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  CAM Amezcuas
+                </a>
+              </h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Full-stack & SEO</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Brand-focused website combining marketing visuals with structured content. Balanced aesthetics with performance.
+              </p>
+            </article>
 
-            <ProjectCard
-              title="Servicios Fiscales"
-              url="https://servicios-fiscales.com/"
-              badge="Live Production"
-              badgeColor="from-green-500 to-emerald-500"
-              role="Front-end development"
-              description="Professional tax and financial consulting website for Americans living in Mexico. Features include tax consulting, compliance guidance, and specialized advisory services for cross-border residents."
-            />
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">Live</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://servicios-fiscales.com/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Servicios Fiscales
+                </a>
+              </h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Front-end development</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Tax consulting website for Americans in Mexico. Compliance guidance and specialized advisory services.
+              </p>
+            </article>
           </div>
-        </section>
+        </motion.section>
 
         {/* In-Progress Projects */}
-        <section className="mb-20">
-          <SectionHeader
-  title="In-Progress Projects"
-  gradient="from-yellow-500 to-amber-500"
-/>
-          <p className="text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            These reflect active development and production thinking, not unfinished ideas.
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="mb-32"
+        >
+          <h2 className="text-3xl font-light text-neutral-900 mb-4 text-center tracking-tight">In Development</h2>
+          <p className="text-neutral-600 mb-16 text-center max-w-2xl mx-auto font-light">
+            Active projects reflecting production thinking
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <ProjectCard
-              title="DR All Season Travel"
-              badge="Website"
-              badgeColor="from-yellow-500 to-amber-500"
-              role="Front-end development"
-              description="Designing a scalable front-end structure. Implementing responsive layouts and reusable components. Preparing for deployment and iterative updates."
-            />
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">In Progress</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">DR All Season Travel</h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Front-end development</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Scalable front-end structure. Responsive layouts and reusable components. Preparing for deployment.
+              </p>
+            </article>
 
-            <ProjectCard
-              title="Mi Tandita"
-              url="https://www.mi-tandita.com/"
-              badge="Landing Page Live"
-              badgeColor="from-yellow-500 to-amber-500"
-              role="Front-end & product development"
-              description="A mobile app for organizing collective savings groups (tandas). Platform for coordination, calendars, payment tracking, and notifications. Currently in development with the landing page deployed and live."
-            />
+            <article className="text-center">
+              <div className="text-xs font-light text-neutral-500 uppercase tracking-wide mb-3">Landing Live</div>
+              <h3 className="font-light text-lg text-neutral-900 mb-2 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://www.mi-tandita.com/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Mi Tandita
+                </a>
+              </h3>
+              <p className="text-xs text-neutral-500 mb-3 font-light">Product development</p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Mobile app for collective savings groups. Coordination, calendars, payment tracking. Landing page live.
+              </p>
+            </article>
           </div>
-        </section>
+        </motion.section>
 
         {/* Training Projects */}
-        <section className="mb-20">
-          <SectionHeader
-  title="Selected Training Projects (TripleTen)"
-  gradient="from-blue-500 to-indigo-500"
-/>
-          <p className="text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            These projects reinforce best practices and complement my professional work.
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="mb-32"
+        >
+          <h2 className="text-3xl font-light text-neutral-900 mb-4 text-center tracking-tight">Training Projects</h2>
+          <p className="text-neutral-600 mb-16 text-center max-w-2xl mx-auto font-light">
+            TripleTen bootcamp work reinforcing best practices
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <TrainingProjectCard
-              title="Around the U.S."
-              url="https://cnote86.github.io/web_project_around/"
-              focusItems={[
-                "Responsive layout",
-                "JavaScript DOM manipulation",
-                "Structured front-end architecture"
-              ]}
-            />
-
-            <TrainingProjectCard
-              title="Homeland"
-              url="https://cnote86.github.io/web_project_homeland/"
-              focusItems={[
-                "Component-based thinking",
-                "Clean HTML/CSS structure",
-                "Front-end logic implementation"
-              ]}
-            />
-
-            <TrainingProjectCard
-              title="Coffee Shop"
-              url="https://cnote86.github.io/web_project_coffeeshop/"
-              focusItems={[
-                "Semantic HTML",
-                "CSS layout fundamentals",
-                "Content-driven design"
-              ]}
-            />
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 mt-8">
-            <TrainingProjectCard
-              title="Library Management System"
-              url="https://cnote86.github.io/web_project_library_es/"
-              focusItems={[
-                "Advanced JavaScript",
-                "Data management",
-                "Complex UI interactions"
-              ]}
-            />
-          </div>
-        </section>
-
-        {/* How I Work */}
-        <section className="mb-16 bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-          <SectionHeader
-  title="How I Work"
-  gradient="from-purple-500 to-pink-500"
-/>
-          <div className="grid md:grid-cols-2 gap-8 text-center">
-            <ContentBox color="blue-50">
-              <h3 className="font-semibold text-gray-800 text-lg mb-4">Development Principles</h3>
-              <ul className="text-gray-700 space-y-3 inline-block">
-                <BulletListItem color="blue">Mobile-first responsive design</BulletListItem>
-                <BulletListItem color="blue">Clarity and trust for content-heavy pages</BulletListItem>
-                <BulletListItem color="blue">Comfortable with live cloud-hosted environments</BulletListItem>
-                <BulletListItem color="blue">Maintainability over just visuals</BulletListItem>
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            <article className="text-center">
+              <h3 className="font-light text-base text-neutral-900 mb-3 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://cnote86.github.io/web_project_around/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Around the U.S.
+                </a>
+              </h3>
+              <ul className="text-xs text-neutral-600 space-y-1 font-light">
+                <li>Responsive layout</li>
+                <li>DOM manipulation</li>
+                <li>Front-end architecture</li>
               </ul>
-            </ContentBox>
-            
-            <ContentBox color="teal-50">
-              <h3 className="font-semibold text-gray-800 text-lg mb-4">Collaboration</h3>
-              <ul className="text-gray-700 space-y-3 inline-block">
-                <BulletListItem color="teal">Works well with designers and copywriters</BulletListItem>
-                <BulletListItem color="teal">Values stakeholder collaboration</BulletListItem>
-                <BulletListItem color="teal">Focuses on real-world deployment</BulletListItem>
-                <BulletListItem color="teal">Aligns with patient-facing digital work</BulletListItem>
+            </article>
+
+            <article className="text-center">
+              <h3 className="font-light text-base text-neutral-900 mb-3 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://cnote86.github.io/web_project_homeland/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Homeland
+                </a>
+              </h3>
+              <ul className="text-xs text-neutral-600 space-y-1 font-light">
+                <li>Component-based</li>
+                <li>HTML/CSS structure</li>
+                <li>Logic implementation</li>
               </ul>
-            </ContentBox>
+            </article>
+
+            <article className="text-center">
+              <h3 className="font-light text-base text-neutral-900 mb-3 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://cnote86.github.io/web_project_coffeeshop/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Coffee Shop
+                </a>
+              </h3>
+              <ul className="text-xs text-neutral-600 space-y-1 font-light">
+                <li>Semantic HTML</li>
+                <li>CSS fundamentals</li>
+                <li>Content-driven</li>
+              </ul>
+            </article>
           </div>
-        </section>
+
+          <div className="max-w-md mx-auto">
+            <article className="text-center">
+              <h3 className="font-light text-base text-neutral-900 mb-3 opacity-60 hover:opacity-100 transition-opacity">
+                <a href="https://cnote86.github.io/web_project_library_es/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">
+                  Library System
+                </a>
+              </h3>
+              <ul className="text-xs text-neutral-600 space-y-1 font-light">
+                <li>Advanced JavaScript</li>
+                <li>Data management</li>
+                <li>Complex UI</li>
+              </ul>
+            </article>
+          </div>
+        </motion.section>
 
         {/* Contact */}
-        <section className="text-center py-12">
-<SectionHeader title="Get In Touch" gradient="from-blue-500 to-teal-500" />
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+        <section className="text-center">
+          <h2 className="text-3xl font-light text-neutral-900 mb-12 tracking-tight">Get In Touch</h2>
+          <div className="flex flex-wrap justify-center gap-8">
             <a 
               href="mailto:info@codevostudio.com" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all shadow-lg"
+              className="text-neutral-600 hover:text-neutral-900 font-light transition-all hover:tracking-wide"
             >
-              Email Me
+              info@codevostudio.com
             </a>
             <a 
               href="mailto:mc1986.99@gmail.com" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-lg hover:from-blue-600 hover:to-teal-600 transition-all shadow-lg"
+              className="text-neutral-600 hover:text-neutral-900 font-light transition-all hover:tracking-wide"
             >
-              Alternative Email
-            </a>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8">
-            <a 
-              href="https://github.com/cnote86" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-lg hover:from-gray-700 hover:to-gray-900 transition-all shadow-lg flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              GitHub
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/mario-ricardo-campos-hernandez-913642169" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-900 text-white rounded-lg hover:from-blue-800 hover:to-blue-950 transition-all shadow-lg flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-linkedin">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              LinkedIn
+              mc1986.99@gmail.com
             </a>
           </div>
         </section>
