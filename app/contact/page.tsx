@@ -11,10 +11,10 @@ export default function ContactPage() {
       <div className="max-w-4xl mx-auto px-6 py-32 relative z-10">
         {/* Header */}
         <header className="mb-32 text-center">
-          <Link href="/" className="text-neutral-500 hover:text-neutral-900 text-sm mb-12 inline-block transition-colors">
+          <Link href="/" className="text-slate-800 hover:text-blue-600 text-sm mb-12 inline-block transition-colors">
             ← Back
           </Link>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-light mb-8 text-neutral-900 text-center tracking-tighter leading-none">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-light mb-8 text-slate-800 text-center tracking-tighter leading-none">
             Contact
           </h1>
           <p className="text-lg text-neutral-500 max-w-xl mx-auto font-light">
@@ -31,7 +31,7 @@ export default function ContactPage() {
         >
           <div className="grid md:grid-cols-2 gap-16">
             <div className="text-center">
-              <h2 className="text-2xl font-light text-neutral-900 mb-8 tracking-tight">Email</h2>
+              <h2 className="text-2xl font-light text-slate-800 mb-8 tracking-tight">Email</h2>
               <div className="space-y-4">
                 <a 
                   href="mailto:mc1986.99@gmail.com" 
@@ -49,7 +49,7 @@ export default function ContactPage() {
             </div>
             
             <div className="text-center">
-              <h2 className="text-2xl font-light text-neutral-900 mb-8 tracking-tight">Connect</h2>
+              <h2 className="text-2xl font-light text-slate-800 mb-8 tracking-tight">Connect</h2>
               <div className="space-y-4">
                 <a 
                   href="https://github.com/cnote86" 
@@ -79,7 +79,7 @@ export default function ContactPage() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <h2 className="text-3xl font-light text-neutral-900 mb-12 text-center tracking-tight">Send a Message</h2>
+          <h2 className="text-3xl font-light text-slate-800 mb-12 text-center tracking-tight">Send a Message</h2>
           
           <form id="contactForm" className="space-y-6 max-w-2xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
@@ -133,7 +133,7 @@ export default function ContactPage() {
             
             <button 
               type="submit" 
-              className="w-full px-8 py-3 bg-neutral-900 text-white hover:bg-neutral-700 transition-all text-sm tracking-wide hover:tracking-wider font-light hover:-translate-y-0.5"
+              className="w-full px-8 py-3 bg-slate-800 text-white hover:bg-slatel-700 transition-all text-sm tracking-wide hover:tracking-wider font-light hover:-translate-y-0.5"
             >
               Send Message
             </button>
