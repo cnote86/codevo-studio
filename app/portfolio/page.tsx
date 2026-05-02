@@ -104,7 +104,7 @@ export default function PortfolioPage() {
               </h3>
               <p className="text-xs text-slate-500 mb-3 font-light">Full-stack web app from zero</p>
               <p className="text-slate-400 text-sm font-light leading-relaxed">
-                End-to-end full-stack build. Architecture, front-end, back-end, and deployment designed and implemented from the ground up.
+                Sports community platform connecting players with teams and events. Full-stack build from the ground up — architecture, front-end, back-end, and deployment.
               </p>
             </article>
             <article className="text-center">
