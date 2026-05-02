@@ -98,6 +98,18 @@ export default function PortfolioPage() {
             <article className="text-center">
               <div className="text-xs font-light text-slate-800 uppercase tracking-wide mb-3">Live</div>
               <h3 className="font-light text-lg text-slate-800 mb-2 transition-opacity">
+                <a href="https://strikersmatch.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                  StrikersMatch
+                </a>
+              </h3>
+              <p className="text-xs text-slate-500 mb-3 font-light">Front-end development & deployment</p>
+              <p className="text-slate-400 text-sm font-light leading-relaxed">
+                Sports community platform connecting players with teams and events. Responsive design with real-time features.
+              </p>
+            </article>
+            <article className="text-center">
+              <div className="text-xs font-light text-slate-800 uppercase tracking-wide mb-3">Live</div>
+              <h3 className="font-light text-lg text-slate-800 mb-2 transition-opacity">
                 <a href="https://servicios-fiscales.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
                   Servicios Fiscales
                 </a>
