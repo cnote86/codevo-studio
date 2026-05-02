@@ -102,9 +102,9 @@ export default function PortfolioPage() {
                   StrikersMatch
                 </a>
               </h3>
-              <p className="text-xs text-slate-500 mb-3 font-light">Front-end development & deployment</p>
+              <p className="text-xs text-slate-500 mb-3 font-light">Full-stack web app from zero</p>
               <p className="text-slate-400 text-sm font-light leading-relaxed">
-                Sports community platform connecting players with teams and events. Responsive design with real-time features.
+                End-to-end full-stack build. Architecture, front-end, back-end, and deployment designed and implemented from the ground up.
               </p>
             </article>
             <article className="text-center">
